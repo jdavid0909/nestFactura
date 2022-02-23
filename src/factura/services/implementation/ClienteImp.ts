@@ -59,7 +59,15 @@ export class ClienteImpl{
         return new PageDto(entities, pageMetaDto);
     }
 
+    async getId(id:number){
+        
+        const queryBuilder =  this.clienteRepository.createQueryBuilder('cliente')
+                                        .innerJoinAndSelect("cliente.facturas","f")
+                                        .where("cliente.id = :ident", { ident: id })
+                                        .getMany();
 
+        return await queryBuilder;
+    };
 
 
 

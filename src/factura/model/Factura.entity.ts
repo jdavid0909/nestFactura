@@ -9,14 +9,12 @@ import { FacturaDetalles } from ".";
 export class Factura {
 
     @PrimaryGeneratedColumn()
-    @Exclude()
     id:number;
 
     @Column({type:"varchar",length:20})
     codigo:string;
 
     @CreateDateColumn({type:'timestamp'})
-    @Exclude()
     fecha:Date;
 
     @ManyToOne(() => Cliente, cliente => cliente.facturas)

@@ -1,4 +1,4 @@
-import { Body, ClassSerializerInterceptor, Controller, Delete, Get, HttpCode, HttpStatus, Param, Post, Put, Query, UseInterceptors } from "@nestjs/common";
+import { Body, ClassSerializerInterceptor, Controller, Delete, Get, HttpCode, HttpStatus, Param, ParseIntPipe, Post, Put, Query, UseInterceptors } from "@nestjs/common";
 import { ApiTags } from "@nestjs/swagger";
 import { query } from "express";
 import { ClienteDto } from "../dto/ClienteDto";
@@ -44,6 +44,12 @@ export class clienteController{
     @Delete(':id')
     deleteOne(@Param('id') id:number){
         return this.clienteService.deleteOne(id);
+    }
+
+    @Get(':id')
+    async getId(@Param('id',ParseIntPipe) id: number){
+
+        return await this.clienteService.getId(id)
     }
 
 }

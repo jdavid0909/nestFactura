@@ -27,8 +27,8 @@ export class FacturaDetalles{
     @Column({type:'double'})
     total:number;
 
-    @Column({type:'varchar'})
-    estado:string;
+    @Column({type:'boolean'})
+    estado:boolean;
     @CreateDateColumn({type:'timestamp'})
     fecha:Date;
 
