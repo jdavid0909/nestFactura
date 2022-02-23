@@ -12,8 +12,8 @@ export class Producto{
     @Column({type:'int'})
     stock:number;
 
-    @Column({type:'varchar',length:30})
-    estato:string;
+    @Column({type:'boolean'})
+    estato:boolean;
 
     @CreateDateColumn({type:'timestamp'})
     fecha:Date;
